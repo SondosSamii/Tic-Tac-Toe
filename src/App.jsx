@@ -29,8 +29,8 @@ function App() {
       <GameContainer
         activePlayer={activePlayer}
         board={board}
-        gameTurns={gameTurns}
-        onSelectSquare={handleSelectSquare}
+        turns={gameTurns}
+        onPlay={handleSelectSquare}
       />
       <Log turns={gameTurns} />
     </main>
