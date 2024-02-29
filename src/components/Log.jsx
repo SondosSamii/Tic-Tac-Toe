@@ -1,11 +1,9 @@
-export default function Log({ gameTurns }) {
-  console.log("gameTurns: ", gameTurns);
-
+export default function Log({ turns }) {
   return (
     <ol id="log">
-      {gameTurns.map(({ player, row, col }, index) => (
+      {turns.map(({ player, square }, index) => (
         <li key={index}>
-          Player: {player} played on: {row}, {col}
+          Player: {player} played on: {square.row}, {square.col}
         </li>
       ))}
     </ol>
