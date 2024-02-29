@@ -16,10 +16,6 @@ export function GameBoard({ onSelectSquare, activeSymbol }) {
         newBoard[rowIndex] = [...prevBoard[rowIndex]];
         newBoard[rowIndex][colIndex] = activeSymbol;
         return newBoard;
-
-        // const newBoard = [...prevBoard.map((innerRow) => [...innerRow])];
-        // newBoard[rowIndex][colIndex] = "X";
-        // return newBoard;
       });
       onSelectSquare(rowIndex, colIndex);
     }
