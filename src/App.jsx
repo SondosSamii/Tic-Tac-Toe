@@ -1,10 +1,16 @@
+import { useState } from "react";
+import { GameContainer } from "./components/GameContainer";
+import Log from "./components/Log";
 
 function App() {
-  
+  const [gameTurns, setGameTurns] = useState([]);
 
   return (
-    <h1>React Tic-Tac-Toe</h1>
-  )
+    <main>
+      <GameContainer onPlay={setGameTurns} />
+      <Log gameTurns={gameTurns} />
+    </main>
+  );
 }
 
-export default App
+export default App;
