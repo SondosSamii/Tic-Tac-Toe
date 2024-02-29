@@ -17,13 +17,10 @@ function App() {
   function handleSelectSquare(rowIndex, colIndex) {
     if (board[rowIndex][colIndex] === null) {
       setActivePlayer((currentPlayer) => (currentPlayer === "X" ? "O" : "X"));
-      setGameTurns((prevTurns) => {
-        const updatedTurns = [
-          { player: activePlayer, square: { row: rowIndex, col: colIndex } },
-          ...prevTurns,
-        ];
-        return updatedTurns;
-      });
+      setGameTurns([
+        { player: activePlayer, square: { row: rowIndex, col: colIndex } },
+        ...gameTurns,
+      ]);
     }
   }
 
