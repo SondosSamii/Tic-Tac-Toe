@@ -1,4 +1,9 @@
+import PropTypes from "prop-types";
 import { Player } from "./Player";
+
+Players.propTypes = {
+  activePlayer: PropTypes.string,
+};
 
 export function Players({ activePlayer }) {
   return (

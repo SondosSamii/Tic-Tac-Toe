@@ -1,4 +1,11 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
+
+Player.propTypes = {
+  initialName: PropTypes.string.isRequired,
+  symbol: PropTypes.string.isRequired,
+  isActive: PropTypes.bool.isRequired,
+};
 
 export function Player({ initialName, symbol, isActive }) {
   const [name, setName] = useState(initialName);

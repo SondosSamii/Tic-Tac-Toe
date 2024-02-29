@@ -1,3 +1,11 @@
+import PropTypes from "prop-types";
+
+GameBoard.propTypes = {
+  board: PropTypes.array.isRequired,
+  onPlay: PropTypes.func.isRequired,
+  winner: PropTypes.string,
+};
+
 export function GameBoard({ board, onPlay, winner }) {
   return (
     <ol id="game-board">

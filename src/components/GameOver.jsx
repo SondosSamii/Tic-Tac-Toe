@@ -1,3 +1,8 @@
+import PropTypes from "prop-types";
+
+GameOver.propTypes = {
+  winner: PropTypes.string.isRequired,
+};
 export function GameOver({ winner }) {
   return (
     <div id="game-over">
