@@ -12,7 +12,12 @@ export function GameBoard({ board, turns, onPlay }) {
           <ol>
             {row.map((cell, colIndex) => (
               <li key={colIndex}>
-                <button onClick={() => onPlay(rowIndex, colIndex)}>{cell}</button>
+                <button
+                  onClick={() => onPlay(rowIndex, colIndex)}
+                  disabled={board[rowIndex][colIndex] !== null}
+                >
+                  {cell}
+                </button>
               </li>
             ))}
           </ol>
