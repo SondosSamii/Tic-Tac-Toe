@@ -15,7 +15,13 @@ function getActivePlayer(turns) {
 function App() {
   const [gameTurns, setGameTurns] = useState([]);
 
-  const board = initialBoard;
+  const gameBoard = initialBoard;
+
+  for (const turn of gameTurns) {
+    const { player, square } = turn;
+    const { row, col } = square;
+    gameBoard[row][col] = player;
+  }
 
   function handleSelectSquare(rowIndex, colIndex) {
     setGameTurns((prevTurns) => [
@@ -28,7 +34,7 @@ function App() {
     <main>
       <GameContainer
         activePlayer={getActivePlayer(gameTurns)}
-        board={board}
+        board={gameBoard}
         turns={gameTurns}
         onPlay={handleSelectSquare}
       />
