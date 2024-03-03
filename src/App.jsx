@@ -16,7 +16,7 @@ function getActivePlayer(turns) {
 function App() {
   const [gameTurns, setGameTurns] = useState([]);
 
-  const gameBoard = initialBoard;
+  const gameBoard = [...initialBoard.map((innerArray) => [...innerArray])];
 
   const activePlayer = getActivePlayer(gameTurns);
 
@@ -47,6 +47,10 @@ function App() {
     ]);
   }
 
+  function handleRematch() {
+    setGameTurns([]);
+  }
+
   return (
     <main>
       <GameContainer
@@ -56,6 +60,7 @@ function App() {
         onPlay={handleSelectSquare}
         winner={winner}
         hasDraw={hasDraw}
+        onRematch={handleRematch}
       />
       <Log turns={gameTurns} />
     </main>
