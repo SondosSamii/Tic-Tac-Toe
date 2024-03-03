@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 GameBoard.propTypes = {
   board: PropTypes.array.isRequired,
   onPlay: PropTypes.func.isRequired,
-  winner: PropTypes.string,
+  winnerSymbol: PropTypes.string,
 };
 
-export function GameBoard({ board, onPlay, winner }) {
+export function GameBoard({ board, onPlay, winnerSymbol }) {
   return (
     <ol id="game-board">
       {board.map((row, rowIndex) => (
@@ -16,7 +16,7 @@ export function GameBoard({ board, onPlay, winner }) {
               <li key={colIndex}>
                 <button
                   onClick={() => onPlay(rowIndex, colIndex)}
-                  disabled={board[rowIndex][colIndex] !== null || winner !== null}
+                  disabled={board[rowIndex][colIndex] !== null || winnerSymbol !== null}
                 >
                   {cell}
                 </button>

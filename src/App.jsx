@@ -26,7 +26,7 @@ function App() {
     gameBoard[row][col] = player;
   }
 
-  let winner = null;
+  let winnerSymbol = null;
 
   for (const combination of WINNING_COMBINATIONS) {
     const firstSquare = gameBoard[combination[0].row][combination[0].column];
@@ -34,7 +34,7 @@ function App() {
     const thirdSquare = gameBoard[combination[2].row][combination[2].column];
 
     if (firstSquare && firstSquare === secondSquare && firstSquare === thirdSquare) {
-      winner = firstSquare;
+      winnerSymbol = firstSquare;
     }
   }
 
@@ -58,7 +58,7 @@ function App() {
         board={gameBoard}
         turns={gameTurns}
         onPlay={handleSelectSquare}
-        winner={winner}
+        winnerSymbol={winnerSymbol}
         hasDraw={hasDraw}
         onRematch={handleRematch}
       />
