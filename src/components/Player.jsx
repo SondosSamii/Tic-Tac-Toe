@@ -5,10 +5,10 @@ Player.propTypes = {
   initialName: PropTypes.string.isRequired,
   symbol: PropTypes.string.isRequired,
   isActive: PropTypes.bool.isRequired,
-  onPlayerNameChange: PropTypes.func.isRequired,
+  onChangePlayerName: PropTypes.func.isRequired,
 };
 
-export function Player({ initialName, symbol, isActive, onPlayerNameChange }) {
+export function Player({ initialName, symbol, isActive, onChangePlayerName }) {
   const [name, setName] = useState(initialName);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -18,7 +18,7 @@ export function Player({ initialName, symbol, isActive, onPlayerNameChange }) {
 
   function handleNameChange(newValue) {
     setName(newValue);
-    onPlayerNameChange(symbol, newValue);
+    onChangePlayerName(symbol, newValue);
   }
 
   let playerName = <span className="player-name">{name}</span>;

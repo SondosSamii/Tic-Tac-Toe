@@ -4,23 +4,23 @@ import { Player } from "./Player";
 Players.propTypes = {
   activePlayer: PropTypes.string.isRequired,
   players: PropTypes.object.isRequired,
-  onPlayerNameChange: PropTypes.func.isRequired,
+  onChangePlayerName: PropTypes.func.isRequired,
 };
 
-export function Players({ activePlayer, players, onPlayerNameChange }) {
+export function Players({ activePlayer, players, onChangePlayerName }) {
   return (
     <ol id="players" className="highlight-player">
       <Player
         initialName={players.X}
         symbol="X"
         isActive={activePlayer === "X"}
-        onPlayerNameChange={onPlayerNameChange}
+        onChangePlayerName={onChangePlayerName}
       />
       <Player
         initialName={players.O}
         symbol="O"
         isActive={activePlayer === "O"}
-        onPlayerNameChange={onPlayerNameChange}
+        onChangePlayerName={onChangePlayerName}
       />
     </ol>
   );

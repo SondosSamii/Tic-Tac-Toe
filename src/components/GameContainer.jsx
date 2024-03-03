@@ -29,7 +29,7 @@ export function GameContainer({ activePlayer, board, turns, onPlay, winner, hasD
       <Players
         activePlayer={winner ?? activePlayer}
         players={players}
-        onPlayerNameChange={handlePlayerName}
+        onChangePlayerName={handlePlayerName}
       />
       {(winner || hasDraw) && <GameOver winner={players[winner]} onRematch={onRematch} />}
       <GameBoard board={board} turns={turns} onPlay={onPlay} winner={winner} />
