@@ -17,13 +17,16 @@ function App() {
   const [gameTurns, setGameTurns] = useState([]);
 
   const gameBoard = initialBoard;
-  let winner = null;
+
+  const activePlayer = getActivePlayer(gameTurns);
 
   for (const turn of gameTurns) {
     const { player, square } = turn;
     const { row, col } = square;
     gameBoard[row][col] = player;
   }
+
+  let winner = null;
 
   for (const combination of WINNING_COMBINATIONS) {
     const firstSquare = gameBoard[combination[0].row][combination[0].column];
@@ -35,6 +38,8 @@ function App() {
     }
   }
 
+  const hasDraw = gameTurns.length >= 9;
+
   function handleSelectSquare(rowIndex, colIndex) {
     setGameTurns((prevTurns) => [
       { player: getActivePlayer(prevTurns), square: { row: rowIndex, col: colIndex } },
@@ -45,11 +50,12 @@ function App() {
   return (
     <main>
       <GameContainer
-        activePlayer={getActivePlayer(gameTurns)}
+        activePlayer={activePlayer}
         board={gameBoard}
         turns={gameTurns}
         onPlay={handleSelectSquare}
         winner={winner}
+        hasDraw={hasDraw}
       />
       <Log turns={gameTurns} />
     </main>

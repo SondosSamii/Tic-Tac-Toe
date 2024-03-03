@@ -1,13 +1,15 @@
 import PropTypes from "prop-types";
 
 GameOver.propTypes = {
-  winner: PropTypes.string.isRequired,
+  winner: PropTypes.string,
 };
+
 export function GameOver({ winner }) {
   return (
     <div id="game-over">
       <h2>Game Over</h2>
-      <p>{winner} won!</p>
+      {winner && <p>{winner} won!</p>}
+      {!winner && <p>It's a draw!</p>}
       <button>Rematch!</button>
     </div>
   );

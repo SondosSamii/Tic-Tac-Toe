@@ -9,13 +9,14 @@ GameContainer.propTypes = {
   turns: PropTypes.array.isRequired,
   onPlay: PropTypes.func.isRequired,
   winner: PropTypes.string,
+  hasDraw: PropTypes.bool,
 };
 
-export function GameContainer({ activePlayer, board, turns, onPlay, winner }) {
+export function GameContainer({ activePlayer, board, turns, onPlay, winner, hasDraw }) {
   return (
     <div id="game-container">
       <Players activePlayer={winner ? null : activePlayer} />
-      {winner && <GameOver winner={winner} />}
+      {(winner || hasDraw) && <GameOver winner={winner} />}
       <GameBoard board={board} turns={turns} onPlay={onPlay} winner={winner} />
     </div>
   );
