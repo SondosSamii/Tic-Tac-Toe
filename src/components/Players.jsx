@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Player } from "./Player";
 
 Players.propTypes = {
-  activePlayer: PropTypes.string,
+  activePlayer: PropTypes.string.isRequired,
 };
 
 export function Players({ activePlayer }) {

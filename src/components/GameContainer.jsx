@@ -15,7 +15,7 @@ GameContainer.propTypes = {
 export function GameContainer({ activePlayer, board, turns, onPlay, winner, hasDraw }) {
   return (
     <div id="game-container">
-      <Players activePlayer={winner ? null : activePlayer} />
+      <Players activePlayer={winner ?? activePlayer} />
       {(winner || hasDraw) && <GameOver winner={winner} />}
       <GameBoard board={board} turns={turns} onPlay={onPlay} winner={winner} />
     </div>
